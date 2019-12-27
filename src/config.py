@@ -24,12 +24,15 @@ def get_desktop():
 
     # these are the envs I will look for
     # feel free to add your Desktop and see if it works
+    mate_re = re.compile(r'mate')
     gnome_re = re.compile(r'gnome')
     budgie_re = re.compile(r'budgie')
     kde_re = re.compile(r'kde')
     plasma_re = re.compile(r'plasma')
     plasma5_re = re.compile(r'plasma5')
 
+    if mate_re.search(env) or mate_re.search(second_env) or mate_re.search(third_env):
+        return "gtk"
     if gnome_re.search(env) or gnome_re.search(second_env) or gnome_re.search(third_env):
         return "gtk"
     if budgie_re.search(env) or budgie_re.search(second_env) or budgie_re.search(third_env):
